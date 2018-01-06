@@ -28,11 +28,7 @@ $(document).ready(function(){
 
 	$.ajax({
 	    url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="cityLon"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-	    type: "GET",
-	    data: {
-	      "$limit" : 5000,
-	      "$$app_token" : "bRM4Mi2HNqY1XERoo2TVouQ67E"
-	    }
+	    type: "GET"
 	}).done(function(data) {
 	  console.log(data);
 	});
