@@ -26,11 +26,16 @@
           <label for="city">State</label>
           <input class="form-control" id="city" type="text">
         </div>
-        <div class="form-group">
-          <label for="radius">Radius</label>
+        <div class="form-group col-lg-6">
+          <label for="radius">Radius in Miles</label>
           <input class="form-control" id="radius" type="number">
         </div>
+        <div class="col-lg-6">
+          <label for="radius"># of results desired</label>
+          <input class="form-control" type="number" name="quantity" min="10" max="50">
+        </div>
         <button class="btn-primary" id="getHike">Submit</button>
+
       </div>
       <div class="col-lg-4">
       </div>
