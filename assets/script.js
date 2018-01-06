@@ -1,5 +1,15 @@
 $(document).ready(function(){
-
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCYdyEbewGrsZ77lOrWG0tRH-aBaEB9oP8",
+    authDomain: "hikefinder-22a32.firebaseapp.com",
+    databaseURL: "https://hikefinder-22a32.firebaseio.com",
+    projectId: "hikefinder-22a32",
+    storageBucket: "",
+    messagingSenderId: "241059448457"
+  };
+  firebase.initializeApp(config);
+  
 	$.ajax({
 	    url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=100&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b",
 	    type: "GET",
