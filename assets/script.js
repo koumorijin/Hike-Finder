@@ -27,7 +27,7 @@ $(document).ready(function(){
 		//API CALL
 		
 		$.ajax({
-	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="city+","state,
+	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="+city+","+state,
 	    	type: "GET"
 			}).done(function(data) {
 	  		console.log(data);
@@ -68,7 +68,8 @@ $(document).ready(function(){
 	    if (event.target == modal) {
 	        modal.style.display = "none";
 	    }
-	};
+	}
+});
 
 // $(window).load(function() {
 //     // Construct the query string
