@@ -8,48 +8,80 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <div class="container-fluid">
-    <br>
 
-    <div class="jumbotron">
-      <h1 class="text-center">HGL Hikers</h1>
+  <div class="jumbotron">
+    <h1 class="text-center">HGL Hikers</h1>
 
 
 
-      <div class="form-group">
-        <label for="train-frequency">Address</label>
-        <input class="form-control" id="Address" type="number">
-      </div>
-      
-      <div class="form-group">
-        <label for="train-frequency">Radius</label>
-        <input class="form-control" id="Radius" type="number">
-      </div>
-
-
-
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input class="form-control" id="address" type="text">
     </div>
-    <table class="table">
-      <tbody id="all-display">
-      </tbody>
+
+    <div class="form-group">
+      <label for="radius">Radius</label>
+      <input class="form-control" id="radius" type="text">
+    </div>
+    <button class="btn-primary" id="getHike">Submit</button>
+  </div>
+
+  <!-- Shows hike results -->
+  <table class="table">
+    <tbody id="all-display">
+    </tbody>
     </table>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Available Hikes</h3>
-          </div>
-          <div class="panel-body">
-          </div>
+      <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-lg-2">
+                </div>
+
+                <!-- Holds actual results -->
+                <div class="col-lg-8">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Placeholder Header</div>
+                      <div class="panel-body">
+                      <span>Panel content</span>
+                      <!-- Opens Modal -->
+                        <!-- Trigger/Open The Modal -->
+                        <button id="myBtn">Open Modal</button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-lg-2">
+                </div>
+              </div>
+            </div>
+          <!-- </div> -->
         </div>
+
       </div>
 
     </div>
 
+    <!-- map? -->
+    <div id="map"> 
+    </div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
   </div>
-  <div id="map"> 
-  </div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</div>
+
+
+
+
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
     crossorigin="anonymous"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
