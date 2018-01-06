@@ -25,11 +25,18 @@ $(document).ready(function(){
 		console.log(city);
 		console.log(radius);
 		//API CALL
+		
 		$.ajax({
-	    //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-	    url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=20&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-	    type: "GET"
-		}).done(function(data) {
+	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="city+","state,
+	    	type: "GET"
+			}).done(function(data) {
+	  		console.log(data);
+		});
+		$.ajax({
+	   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+	   	 url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=20&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+	    	type: "GET"
+			}).done(function(data) {
 	  		console.log(data);
 		});
 	});
@@ -61,7 +68,7 @@ $(document).ready(function(){
 	    if (event.target == modal) {
 	        modal.style.display = "none";
 	    }
-	}
+	};
 
 // $(window).load(function() {
 //     // Construct the query string
