@@ -12,6 +12,7 @@ $(document).ready(function(){
   firebase.initializeApp(config);
 
   let city = "";
+  let state = "";
   let radius = 0;
   let cityLat = 0;
   let cityLon = 0;
@@ -20,44 +21,55 @@ $(document).ready(function(){
   	$("#getHike").on("click", function() {
 		city = $("#city").val();
 		radius = $("#radius").val();
+		state = $("#state").val();
 		console.log(city);
 		console.log(radius);
+		//API CALL
+		
+		$.ajax({
+	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="+city+","+state,
+	    	type: "GET"
+			}).done(function(data) {
+	  		console.log(data);
+		});
+		$.ajax({
+	   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+	   	 url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=20&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+	    	type: "GET"
+			}).done(function(data) {
+	  		console.log(data);
+		});
 	});
 
 	//FUNCTION TO GET THE LATITIUDE AND LONGITUDE OF THE CITY ENTERED
 
-	$.ajax({
-	    url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="cityLon"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-	    type: "GET"
-	}).done(function(data) {
-	  console.log(data);
-	});
 
-	// Get the modal
+	// GET THE MODAL
 	var modal = $('#myModal');
 
-	// Get the button that opens the modal
+	// GET THE BUTTON THAT OPENS THE MODAL 
 	var btn = $("#myBtn");
 
-	// Get the <span> element that closes the modal
+	// GET THE <span> ELEMENT THAT CLOSES THE MODAL
 	var span = $(".close")[0];
 
-	// When the user clicks the button, open the modal 
+	// WHEN THE USER CLICKS THE BUTTON OPEN THE MODAL 
 	btn.onclick = function() {
 	    modal.style.display = "block";
 	}
 
-	// When the user clicks on <span> (x), close the modal
+	// WHEN THE USER CLICKS THE <span> (x), CLOSE THE MODAL
 	span.onclick = function() {
 	    modal.style.display = "none";
 	}
 
-	// When the user clicks anywhere outside of the modal, close it
+	// WHEN THE USER CLICKS ANYWHERE OUTSIDE THE MODAL, CLOSE IT
 	window.onclick = function(event) {
 	    if (event.target == modal) {
 	        modal.style.display = "none";
 	    }
 	}
+});
 
 // $(window).load(function() {
 //     // Construct the query string
