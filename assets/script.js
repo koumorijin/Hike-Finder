@@ -11,17 +11,23 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
+  let city = "";
+  let radius = 0;
+  let cityLat = 0;
+  let cityLon = 0;
+
   	//ON CLICK SUBMIT BUTTON EVENT
   	$("#getHike").on("click", function() {
-		var city = $("#city").val();
-		var radius = $("#radius").val();
+		city = $("#city").val();
+		radius = $("#radius").val();
 		console.log(city);
 		console.log(radius);
-		});
 	});
 
+	//FUNCTION TO GET THE LATITIUDE AND LONGITUDE OF THE CITY ENTERED
+
 	$.ajax({
-	    url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=100&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b",
+	    url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="cityLon"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
 	    type: "GET",
 	    data: {
 	      "$limit" : 5000,
