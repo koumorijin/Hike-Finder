@@ -37,3 +37,18 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.row-striped:nth-of-type(odd){
+  background-color: #efefef;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.row-striped:nth-of-type(even){
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.header-row{
+    font-size: 1.5em;
+    font-weight: bold;
+}
