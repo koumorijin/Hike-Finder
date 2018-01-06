@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  // Initialize Firebase
+  
+  // INITIALIZE FIREBASE
   var config = {
     apiKey: "AIzaSyCYdyEbewGrsZ77lOrWG0tRH-aBaEB9oP8",
     authDomain: "hikefinder-22a32.firebaseapp.com",
@@ -9,34 +10,37 @@ $(document).ready(function(){
     messagingSenderId: "241059448457"
   };
   firebase.initializeApp(config);
-  
+
+  let city = "";
+  let radius = 0;
+  let cityLat = 0;
+  let cityLon = 0;
+
+  	//ON CLICK SUBMIT BUTTON EVENT
+  	$("#getHike").on("click", function() {
+		city = $("#city").val();
+		radius = $("#radius").val();
+		console.log(city);
+		console.log(radius);
+	});
+
+	//FUNCTION TO GET THE LATITIUDE AND LONGITUDE OF THE CITY ENTERED
+
 	$.ajax({
-	    url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=100&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b",
-	    type: "GET",
-	    data: {
-	      "$limit" : 5000,
-	      "$$app_token" : "bRM4Mi2HNqY1XERoo2TVouQ67E"
-	    }
+	    url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="cityLon"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+	    type: "GET"
 	}).done(function(data) {
 	  console.log(data);
 	});
 
-	$("#getHike").on("click", function() {
-		var city = $("#city").val();
-		var radius = $("#radius").val();
-		console.log(city);
-		console.log(radius);
-		});
-	});
-
 	// Get the modal
-	var modal = document.getElementById('myModal');
+	var modal = $('#myModal');
 
 	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
+	var btn = $("#myBtn");
 
 	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+	var span = $(".close")[0];
 
 	// When the user clicks the button, open the modal 
 	btn.onclick = function() {
