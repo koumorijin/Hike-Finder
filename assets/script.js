@@ -24,8 +24,8 @@ $(document).ready(function(){
 		state = $("#state").val();
 		console.log(city);
 		console.log(radius);
-		//API CALL
 		
+		//API CALL TO HIKING TRAILS
 		$.ajax({
 	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="+city+","+state,
 	    	type: "GET"
