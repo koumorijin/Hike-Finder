@@ -8,10 +8,17 @@ $(document).ready(function(){
 	      "$$app_token" : "bRM4Mi2HNqY1XERoo2TVouQ67E"
 	    }
 	}).done(function(data) {
-	  alert("Retrieved " + data.length + " records from the dataset!");
+	  //alert("Retrieved " + data.length + " records from the dataset!");
 	  console.log(data);
 	});
-});
+
+	$("#getHike").on("click", function() {
+		var address = $("#address").text();
+		var radius = $("#radius").text();
+		console.log(address);
+		console.log(radius);
+		});
+	});
 
 // $(window).load(function() {
 //     // Construct the query string
