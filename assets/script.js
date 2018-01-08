@@ -30,6 +30,7 @@ $(document).ready(function(){
 	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="+city+","+state,
 	    	type: "GET"
 			}).done(function(data) {
+			console.log('googleapis');
 	  		console.log(data);
 		});
 		$.ajax({
