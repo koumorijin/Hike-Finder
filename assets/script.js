@@ -38,7 +38,7 @@ $(document).ready(function(){
 	  		currentLong = data.results[0].geometry.location.lng;
 	  		$.ajax({
 		   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-		   	 url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong"+&maxDistance=20&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+		   	 url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance=20&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
 		    	type: "GET"
 				}).done(function(data) {
 		  		console.log(data);
