@@ -13,30 +13,36 @@
     <h1 class="text-center">HGL Hikers</h1>
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-      </div>
-      <div class="col-lg-4">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
         <div class="form-group">
           <label for="city">City</label>
           <input class="form-control" id="city" type="text">
         </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <div class="form-group">
           <label for="state">State</label>
           <input class="form-control" id="state" type="text">
         </div>
-        <div class="form-group col-lg-6">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+        <div class="form-group">
           <label for="radius">Radius in Miles</label>
           <input class="form-control" id="radius" type="number">
         </div>
-        <div class="col-lg-6">
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="form-group">
           <label for="radius"># of results desired</label>
           <input class="form-control" type="number" name="quantity" min="10" max="50">
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-sm-offset-6 col-md-offset-6 col-lg-offset-6">
-        <button class="btn-primary" role="button" id="getHike">Submit</button>
+      <div class="text-center">
+        <button class="btn btn-primary" role="button" id="getHike">Submit</button>
       </div>
     </div>
   </div>  
@@ -52,24 +58,24 @@
             <div class="col-lg-8">
               	<div class="panel panel-default">
                 	<div class="panel-heading" id="hikeName">Hike Name</div>
-                      	<div class="panel-body">
-	                        <div class="row">
-	                            <div class="col-lg-3">
-	                              	<p>Ascent:</p>
-	                            </div>
-	                            <div class="col-lg-3">
-	                              	<p>Difficulty:</p>
-	                            </div>
-	                            <div class="col-lg-3">
-	                              	<p>Rating:</p>
-	                            </div>
-	                            <div class="col-lg-3">
-	                              	<p># of Votes:</p>
-	                            </div>
-	                         </div>
-                        	<!-- Trigger/Open The Modal -->
-                        	<button id="myBtn">Get Details</button>
-                      	</div>
+                  	<div class="panel-body">
+                      <div class="row">
+                          <div class="col-lg-3">
+                            	<p>Ascent:</p>
+                          </div>
+                          <div class="col-lg-3">
+                            	<p>Difficulty:</p>
+                          </div>
+                          <div class="col-lg-3">
+                            	<p>Rating:</p>
+                          </div>
+                          <div class="col-lg-3">
+                            	<p># of Votes:</p>
+                          </div>
+                       </div>
+                    	<!-- Trigger/Open The Modal -->
+                    	<button id="myBtn">Get Details</button>
+                  	</div>
                 </div>
             </div> 
             <div class="col-lg-1">
