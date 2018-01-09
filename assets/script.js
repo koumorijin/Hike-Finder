@@ -54,7 +54,7 @@ $(document).ready(function(){
 		  			votes = results[i].starVotes;
 		  			ascent = results[i].ascent;
 		  			resultDetail.append(`
-		  				<div class="panel panel-default">
+		  				<div class="panel panel-primary">
 		                	<div class="panel-heading" id="hikeName">Hike Name:${name}</div>
 	                      	<div class="panel-body">
 		                        <div class="row">
