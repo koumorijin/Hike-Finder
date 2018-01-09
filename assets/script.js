@@ -42,6 +42,41 @@ $(document).ready(function(){
 		    	type: "GET"
 				}).done(function(data) {
 		  		console.log(data);
+		  		let results = data.trails;
+		  		console.log(results);
+
+
+		  		for (var i = 0; i < results.length; i++) {
+		  			var panelDiv = $('');
+		  			var name = results[i].name;
+		  			var difficulty = results[i].difficulty;
+		  			var rating = results[i].stars;
+		  			var votes = results[i].votes;
+		  			var ascent = results[i].ascent;
+		  			var resultDetail = $('<div class=detes>');
+		  			resultDetail.html (`
+		  				<div class="panel panel-default">
+                	<div class="panel-heading" id="hikeName">Hike Name</div>
+                      	<div class="panel-body">
+	                        <div class="row">
+	                            <div class="col-lg-3">
+	                              	<p>Ascent:${ascent}</p>
+	                            </div>
+	                            <div class="col-lg-3">
+	                              	<p>Difficulty:${difficulty}</p>
+	                            </div>
+	                            <div class="col-lg-3">
+	                              	<p>Rating:${rating}</p>
+	                            </div>
+	                            <div class="col-lg-3">
+	                              	<p># of Votes:${votes}</p>
+	                            </div>
+	                         </div>
+                        	<!-- Trigger/Open The Modal -->
+                        	<button id="myBtn">Get Details</button>
+                      	</div>
+                </div>
+		  		`)};
 			});
 		});
 		

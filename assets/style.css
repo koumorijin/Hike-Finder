@@ -54,6 +54,30 @@
     color: white;
 }
 
+.row-striped:nth-of-type(odd){
+  background-color: #efefef;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.row-striped:nth-of-type(even){
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.header-row{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.btn-primary {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    height: 10%;
+}
+
+
 /* Add Animation */
 @-webkit-keyframes slideIn {
     from {bottom: -300px; opacity: 0} 
@@ -73,25 +97,4 @@
 @keyframes fadeIn {
     from {opacity: 0} 
     to {opacity: 1}
-}
-
-
-
-.row-striped:nth-of-type(odd){
-  background-color: #efefef;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-.row-striped:nth-of-type(even){
-  background-color: #ffffff;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-.header-row{
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.btn-primary {
-    margin-top: 25px;
 }
