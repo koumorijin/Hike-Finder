@@ -39,6 +39,7 @@ $(document).ready(function(){
 		  		console.log(data);
 		  		let results = data.trails;
 		  		console.log(results);
+		  		let resultDetail = $('<div class=detes>');
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -48,7 +49,6 @@ $(document).ready(function(){
 		  			var rating = results[i].stars;
 		  			var votes = results[i].votes;
 		  			var ascent = results[i].ascent;
-		  			var resultDetail = $('<div class=detes>');
 		  			resultDetail.html (`
 		  				<div class="panel panel-default">
                 	<div class="panel-heading" id="hikeName">Hike Name</div>
