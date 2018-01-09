@@ -53,11 +53,6 @@ $(document).ready(function(){
 		  			rating = results[i].stars;
 		  			votes = results[i].starVotes;
 		  			ascent = results[i].ascent;
-		  			console.log(name);
-		  			console.log(difficulty);
-		  			console.log(rating);
-		  			console.log(votes);
-		  			console.log(ascent);
 		  			resultDetail.append(`
 		  				<div class="panel panel-default">
 		                	<div class="panel-heading" id="hikeName">Hike Name:${name}</div>
@@ -76,7 +71,7 @@ $(document).ready(function(){
 		                              	<p># of Votes:${votes}</p>
 		                            </div>
 		                        </div>
-	                        	<button id="myBtn">Get Details</button>
+	                        	<button class="myBtn">Get Details</button>
 	                      	</div>
                 		</div>
 		  			`);
@@ -90,13 +85,13 @@ $(document).ready(function(){
 
 
 	// Get the modal
-	var modal = document.getElementById('myModal');
+	let modal = document.getElementById('myModal');
 
 	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
+	let btn = document.getElementsByClassName("myBtn");
 
 	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
+	let span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on the button, open the modal 
 	btn.onclick = function() {
