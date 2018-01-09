@@ -39,39 +39,48 @@ $(document).ready(function(){
 		  		console.log(data);
 		  		let results = data.trails;
 		  		console.log(results);
-		  		let resultDetail = $('<div class=detes>');
+		  		let resultDetail = $('div#results');
+		  		let name;
+	  			let difficulty;
+	  			let rating;
+	  			let votes;
+	  			let ascent;
 
 
 		  		for (var i = 0; i < results.length; i++) {
-		  			var panelDiv = $('');
-		  			var name = results[i].name;
-		  			var difficulty = results[i].difficulty;
-		  			var rating = results[i].stars;
-		  			var votes = results[i].votes;
-		  			var ascent = results[i].ascent;
-		  			resultDetail.html (`
+		  			name = results[i].name;
+		  			difficulty = results[i].difficulty;
+		  			rating = results[i].stars;
+		  			votes = results[i].starVotes;
+		  			ascent = results[i].ascent;
+		  			console.log(name);
+		  			console.log(difficulty);
+		  			console.log(rating);
+		  			console.log(votes);
+		  			console.log(ascent);
+		  			resultDetail.append(`
 		  				<div class="panel panel-default">
-                	<div class="panel-heading" id="hikeName">Hike Name</div>
-                      	<div class="panel-body">
-	                        <div class="row">
-	                            <div class="col-lg-3">
-	                              	<p>Ascent:${ascent}</p>
-	                            </div>
-	                            <div class="col-lg-3">
-	                              	<p>Difficulty:${difficulty}</p>
-	                            </div>
-	                            <div class="col-lg-3">
-	                              	<p>Rating:${rating}</p>
-	                            </div>
-	                            <div class="col-lg-3">
-	                              	<p># of Votes:${votes}</p>
-	                            </div>
-	                         </div>
-                        	<!-- Trigger/Open The Modal -->
-                        	<button id="myBtn">Get Details</button>
-                      	</div>
-                </div>
-		  		`)};
+		                	<div class="panel-heading" id="hikeName">Hike Name:${name}</div>
+	                      	<div class="panel-body">
+		                        <div class="row">
+		                            <div class="col-lg-3">
+		                              	<p>Ascent:${ascent}</p>
+		                            </div>
+		                            <div class="col-lg-3">
+		                              	<p>Difficulty:${difficulty}</p>
+		                            </div>
+		                            <div class="col-lg-3">
+		                              	<p>Rating:${rating}</p>
+		                            </div>
+		                            <div class="col-lg-3">
+		                              	<p># of Votes:${votes}</p>
+		                            </div>
+		                        </div>
+	                        	<button id="myBtn">Get Details</button>
+	                      	</div>
+                		</div>
+		  			`);
+	  			}
 			});
 		});
 		
