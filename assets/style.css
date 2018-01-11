@@ -1,16 +1,31 @@
 body {
-     background: url(../assets/images/image3.jpg) center center fixed;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
+    background: url(../assets/images/image3.jpg) center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+     
 
  #map { height: 480px; width: 640px }
 
- div.jumbotron{
+div.jumbotron{
     color: #fff;
- }
+}
+ul{
+    list-style: none;
+    padding: 0;
+    list-style-type: none;
+    height: 100vh;
+}
+/*li{
+    margin-right: 10%;
+}*/
+.hikeSelectionHeader{
+    color: #fff;
+    background-color: #000;
+    margin-left: 10%;
+}
 
 .modal {
     display: none; /* Hidden by default */

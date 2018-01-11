@@ -39,7 +39,7 @@ $(document).ready(function(){
 		  		console.log(data);
 		  		let results = data.trails;
 		  		console.log(results);
-		  		let resultDetail = $('div#results');
+		  		let resultDetail = $('ul#results');
 		  		let name;
 	  			let difficulty;
 	  			let rating;
@@ -49,6 +49,8 @@ $(document).ready(function(){
 	  			let description;
 	  			let condition;
 	  			let image;
+	  			let hikeLat;
+	  			let hikeLong
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -61,30 +63,34 @@ $(document).ready(function(){
 		  			description = results[i].summary;
 		  			condition = results[i].conditionStatus;
 		  			image = results[i].imgMedium;
+		  			hikeLat = results[i].latitude;
+		  			hikeLong = results[i].longitude;
 
 		  			resultDetail.append(`
-		  				<div class="panel panel-primary">
-		                	<div class="panel-heading" id="hikeName">
-		                		<h2>${name}</h2>
-		                	</div>
-	                      	<div class="panel-body">
-		                        <div class="row">
-		                            <div class="col-lg-3">
-		                              	<p>Ascent:${ascent}</p>
-		                            </div>
-		                            <div class="col-lg-3">
-		                              	<p>Difficulty:${difficulty}</p>
-		                            </div>
-		                            <div class="col-lg-3">
-		                              	<p>Rating:${rating}</p>
-		                            </div>
-		                            <div class="col-lg-3">
-		                              	<p># of Votes:${votes}</p>
-		                            </div>
-		                        </div>
-	                        	<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
-	                      	</div>
-                		</div>`);
+		  				<li>
+			  				<div class="panel panel-primary id="hikeName${[i]}">
+			                	<div class="panel-heading">
+			                		<h2>${name}</h2>
+			                	</div>
+		                      	<div class="panel-body">
+			                        <div class="row">
+			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			                              	<p>Ascent:${ascent}</p>
+			                            </div>
+			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			                              	<p>Difficulty:${difficulty}</p>
+			                            </div>
+			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			                              	<p>Rating:${rating}</p>
+			                            </div>
+			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+			                              	<p># of Votes:${votes}</p>
+			                            </div>
+			                        </div>
+		                        	<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
+		                      	</div>
+	                		</div>
+	                	<li>`);
 
 		  			$("#newModal").append(`
 					  	<div id="${modalName}" class="modal">
@@ -93,10 +99,10 @@ $(document).ready(function(){
 					        	<span id="close${modalName}" class="close">&times;</span>
 					        </button>
 					          	<div class="row">
-					            	<div class="col-lg-4">
+					            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 					              	<img id="hikeImg" src=${image} style="height: 300px; width: 300px;">
 					            	</div>
-					            	<div class="col-lg-8">
+					            	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 					            	<div class="row">
 					            		<h2>${name}</h2>
 					            	</div>
@@ -106,7 +112,7 @@ $(document).ready(function(){
 					              	<div class="row">
 					                	<h3>Conditions: <span id="hikeCond">${condition}</span></h3>
 					              	</div>
-					              	<button type="button" class="btn btn-default" id="getHike${modalName}">Get Map</button> 
+					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success" role="button">Get Directions</a>
 					            	</div>
 					          	</div>
 					      	</div>
@@ -115,6 +121,34 @@ $(document).ready(function(){
 				});
 			});
 		});
+
+	// initializeSortable = function() {
+ //        $('ul#sortable').sortable({
+ //            start: function(event, ui) {
+ //                // determine which list the assignment record was taken from (source list: $scope.startUl)
+ //                startHikeId= $(ui.item).find('div.id').text();
+ //            }
+ //        });
+ //    }
+ //    initializeSortable();
+ // $(".sortable").sortable();
+ $(function() {
+    var oldList, newList, item;
+    $('.sortable').sortable({
+        start: function(event, ui) {
+            item = ui.item;
+            newList = oldList = ui.item.parent().parent();
+        },
+        stop: function(event, ui) {          
+            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
+        },
+        change: function(event, ui) {  
+            if(ui.sender) newList = ui.placeholder.parent().parent();
+        },
+        connectWith: ".sortable"
+    }).disableSelection();
+});
+
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
