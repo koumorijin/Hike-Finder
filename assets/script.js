@@ -17,10 +17,10 @@ $(document).ready(function(){
 		let state = $("#state").val();
 		let radius = $("input#radius").val();
 		let resultsDesired = $("input#resultsDesired").val();
-		console.log(city);
-		console.log(radius);
+		//console.log(city);
+		//console.log(radius);
 		address = city +', ' +state;
-		console.log(address);
+		//console.log(address);
 		
 		//API CALL TO HIKING TRAILS
 		$.ajax({
@@ -45,9 +45,11 @@ $(document).ready(function(){
 	  			let rating;
 	  			let votes;
 	  			let ascent;
+	  			let modalName;
 
 
 		  		for (var i = 0; i < results.length; i++) {
+		  			modalName = "modal" + Math.floor((Math.random() * 100000) + 1);
 		  			name = results[i].name;
 		  			difficulty = results[i].difficulty;
 		  			rating = results[i].stars;
@@ -71,28 +73,47 @@ $(document).ready(function(){
 		                              	<p># of Votes:${votes}</p>
 		                            </div>
 		                        </div>
-	                        	<button class="btn myBtn">Get Details</button>
+	                        	<button class="btn myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
 	                      	</div>
                 		</div>`);
+		  			$("#myModal").append(`
+					  <div id="${modalName}" class="modal">
+					      <div class="modal-content">
+					        <span class="close">&times;</span>
+					          <div class="row">
+					            <div class="col-lg-4">
+					              <img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
+					            </div>
+					            <div class="col-lg-8">
+					              <div class="row">
+					                <h3>Description:<span id="hikeDesc">Hi, I'm ${modalName}</span></h3>
+					              </div> 
+					              <div class="row">
+					                <h3>Conditions:<span id="hikeCond"></span></h3>
+					              </div> 
+					            </div>
+					          </div>
+					      </div>
+					</div>`)
 	  				}
 				});
 			});
 		});
- //  	var modals = document.getElementsByClassName('modal');
+ //  	var modals = document.getElementsByClassName('myModal');
 	// // Get the button that opens the modal
-	// var btns = document.getElementsByClassName("openmodal");
+	// var btns = document.getElementsByClassName("myBtn");
 	// var spans=document.getElementsByClassName("close");
 	// 	for(let i=0;i<btns.length;i++){
  //   			btns[i].onclick = function() {
  //      		modals[i].style.display = "block";
- //   		}
-	// }
+ //   			}
+	// 	}
 
-	// for(let i=0;i<spans.length;i++){
- //    	spans[i].onclick = function() {
- //       	modals[i].style.display = "none";
- //    	}
- // 	}
+	// 	for(let i=0;i<spans.length;i++){
+ //    		spans[i].onclick = function() {
+ //       		modals[i].style.display = "none";
+ //    		}
+ // 		}
 
 
 
@@ -106,9 +127,9 @@ $(document).ready(function(){
 	let span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
-	}
+	// btn.onclick = function() {
+	//     modal.style.display = "block";
+	// }
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
