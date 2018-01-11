@@ -99,10 +99,19 @@
                               <div class="panel panel-default">
                   <div class="panel-heading" id="hikeName">My Hikes</div>
                         <div class="panel-body">
-                          <div class="row">
+                          <div class="row" >
                             <div class="panel panel-info">
-                              Dummy Shit
-                              <button id="myBtn sidePanel">Get Details</button>
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <p>Name:</p>
+                                </div>
+                                <div class="col-lg-4">
+                                </div>
+                                <div class="col-lg-2">
+                                  <button id="myBtn sidePanel">Get Details</button>
+                                </div>
+                              </div>
+                              
                             </div>
                           </div>
                         </div>
@@ -116,6 +125,8 @@
   <!-- Modal content -->
   	<div class="modal-content">
     	<span class="close">&times;</span>
+
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
       	<div class="row">
         	<div class="col-lg-4">
           	<img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
@@ -126,6 +137,9 @@
 	          </div> 
 	          <div class="row">
 	            <h3>Conditions:<span id="hikeCond"></span></h3>
+              <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
 	          </div> 
 	        </div>
       	</div>

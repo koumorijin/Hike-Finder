@@ -33,7 +33,7 @@ $(document).ready(function(){
 	  		let currentLong = data.results[0].geometry.location.lng;
 	  		$.ajax({
 		   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-		   	 url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
+		   	url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
 		    	type: "GET"
 				}).done(function(data) {
 		  		console.log(data);
@@ -71,17 +71,29 @@ $(document).ready(function(){
 		                              	<p># of Votes:${votes}</p>
 		                            </div>
 		                        </div>
-	                        	<button class="myBtn">Get Details</button>
+	                        	<button class="btn myBtn" data-toggle="modal" data-target="#myModal"">Get Details</button>
 	                      	</div>
-                		</div>
-		  			`);
-	  			}
+                		</div>`);
+	  				}
+				});
 			});
 		});
-		
-	});
+ //  	var modals = document.getElementsByClassName('modal');
+	// // Get the button that opens the modal
+	// var btns = document.getElementsByClassName("openmodal");
+	// var spans=document.getElementsByClassName("close");
+	// 	for(let i=0;i<btns.length;i++){
+ //   			btns[i].onclick = function() {
+ //      		modals[i].style.display = "block";
+ //   		}
+	// }
 
-	//FUNCTION TO GET THE LATITIUDE AND LONGITUDE OF THE CITY ENTERED
+	// for(let i=0;i<spans.length;i++){
+ //    	spans[i].onclick = function() {
+ //       	modals[i].style.display = "none";
+ //    	}
+ // 	}
+
 
 
 	// Get the modal
