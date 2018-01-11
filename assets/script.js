@@ -46,6 +46,8 @@ $(document).ready(function(){
 	  			let votes;
 	  			let ascent;
 	  			let modalName;
+	  			let description;
+	  			let condition;
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -55,6 +57,9 @@ $(document).ready(function(){
 		  			rating = results[i].stars;
 		  			votes = results[i].starVotes;
 		  			ascent = results[i].ascent;
+		  			description = results[i].summary;
+		  			condition = results[i].conditionStatus;
+
 		  			resultDetail.append(`
 		  				<div class="panel panel-primary">
 		                	<div class="panel-heading" id="hikeName">Hike Name:${name}</div>
@@ -73,9 +78,10 @@ $(document).ready(function(){
 		                              	<p># of Votes:${votes}</p>
 		                            </div>
 		                        </div>
-	                        	<button class="btn myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
+	                        	<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
 	                      	</div>
                 		</div>`);
+
 		  			$("#newModal").append(`
 					  	<div id="${modalName}" class="modal">
 					      	<div class="modal-content">
@@ -85,16 +91,17 @@ $(document).ready(function(){
 					              	<img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
 					            	</div>
 					            	<div class="col-lg-8">
-					              		<div class="row">
-					                		<h3>Description:<span id="hikeDesc">Hi, I'm ${modalName}</span></h3>
-					              		</div> 
+					              	<div class="row">
+					                	<h3>Description:<span id="hikeDesc"${description}</span></h3>
+					              	</div> 
 					              	<div class="row">
 					                	<h3>Conditions:<span id="hikeCond"></span></h3>
-					              	</div> 
-					            </div>
-					        </div>
-					    </div>
-					</div>`)
+					              	</div>
+					              	<button type="button" class="btn btn-default" id="getHike">Get Map</button> 
+					            	</div>
+					          	</div>
+					      	</div>
+						</div>`)
 	  				}
 				});
 			});

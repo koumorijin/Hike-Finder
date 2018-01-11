@@ -81,6 +81,10 @@ body {
     font-weight: bold;
 }
 
+#sidePanel {
+    float: right;
+}
+
 .btn-primary {
     margin-top: 25px;
 }
