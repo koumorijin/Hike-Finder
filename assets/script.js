@@ -78,20 +78,23 @@ $(document).ready(function(){
 				});
 			});
 		});
+ //  	var modals = document.getElementsByClassName('modal');
+	// // Get the button that opens the modal
+	// var btns = document.getElementsByClassName("openmodal");
+	// var spans=document.getElementsByClassName("close");
+	// 	for(let i=0;i<btns.length;i++){
+ //   			btns[i].onclick = function() {
+ //      		modals[i].style.display = "block";
+ //   		}
+	// }
 
-	//ADD EVENT LISTENER TO THE CREATED BUTTONS
-	// (function() {
- //    var buttons = document.getElementsByClassName('btn');
- //    if(buttons && buttons.length > 0) {
- //        for(var i=0; i < buttons.length; i++) {
- //            var button = buttons[i];
- //            button.addEventListener('click', function(e) {
- //                e.preventDefault();
- //                this.classList.toggle('active');
- //            });
- //        }
- //    }
-	// })();
+	// for(let i=0;i<spans.length;i++){
+ //    	spans[i].onclick = function() {
+ //       	modals[i].style.display = "none";
+ //    	}
+ // 	}
+
+
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
@@ -103,19 +106,9 @@ $(document).ready(function(){
 	let span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on the button, open the modal 
-	if(btn.length > 0) {
-		console.log(btn.length);
-		for(var index=0; index < btn.length; index++){
-			var button = btn[index];
-			button.addEventListener("click", function(e){
-				e.preventDefault();
-				modal.style.display = "block";
-			})
-		}
+	btn.onclick = function() {
+	    modal.style.display = "block";
 	}
-	// btn.onclick = function() {
-	//     modal.style.display = "block";
-	// }
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
