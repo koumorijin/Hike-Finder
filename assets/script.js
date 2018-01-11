@@ -46,6 +46,8 @@ $(document).ready(function(){
 	  			let votes;
 	  			let ascent;
 	  			let modalName;
+	  			let description;
+	  			let condition;
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -55,6 +57,9 @@ $(document).ready(function(){
 		  			rating = results[i].stars;
 		  			votes = results[i].starVotes;
 		  			ascent = results[i].ascent;
+		  			description = results[i].summary;
+		  			condition = results[i].conditionStatus;
+
 		  			resultDetail.append(`
 		  				<div class="panel panel-primary">
 		                	<div class="panel-heading" id="hikeName">Hike Name:${name}</div>
@@ -79,7 +84,8 @@ $(document).ready(function(){
 	                        	<button class="btn myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
 	                      	</div>
                 		</div>`);
-		  			$("#lastHope").append(`
+
+		  			$("#newModal").append(`
 					  <div id="${modalName}" class="modal">
 					      <div class="modal-content">
 					        <span class="close">&times;</span>
@@ -89,11 +95,12 @@ $(document).ready(function(){
 					            </div>
 					            <div class="col-lg-8">
 					              <div class="row">
-					                <h3>Description:<span id="hikeDesc">Hi, I'm ${modalName}</span></h3>
+					                <h3>Description:<span id="hikeDesc"${description}</span></h3>
 					              </div> 
 					              <div class="row">
 					                <h3>Conditions:<span id="hikeCond"></span></h3>
-					              </div> 
+					              </div>
+					              <button type="button" class="btn btn-default" id="getHike">Get Map</button> 
 					            </div>
 					          </div>
 					      </div>
@@ -102,22 +109,6 @@ $(document).ready(function(){
 				});
 			});
 		});
- //  	var modals = document.getElementsByClassName('myModal');
-	// // Get the button that opens the modal
-	// var btns = document.getElementsByClassName("myBtn");
-	// var spans=document.getElementsByClassName("close");
-	// 	for(let i=0;i<btns.length;i++){
- //   			btns[i].onclick = function() {
- //      		modals[i].style.display = "block";
- //   			}
-	// 	}
-
-	// 	for(let i=0;i<spans.length;i++){
- //    		spans[i].onclick = function() {
- //       		modals[i].style.display = "none";
- //    		}
- // 		}
-
 
 
 	// Get the modal
