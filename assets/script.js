@@ -76,7 +76,7 @@ $(document).ready(function(){
 	                        	<button class="btn myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
 	                      	</div>
                 		</div>`);
-		  			$("#myModal").append(`
+		  			$("#newModal").append(`
 					  <div id="${modalName}" class="modal">
 					      <div class="modal-content">
 					        <span class="close">&times;</span>
