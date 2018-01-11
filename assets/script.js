@@ -33,7 +33,7 @@ $(document).ready(function(){
 	  		let currentLong = data.results[0].geometry.location.lng;
 	  		$.ajax({
 		   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-		   	 url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
+		   	url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
 		    	type: "GET"
 				}).done(function(data) {
 		  		console.log(data);
@@ -71,18 +71,27 @@ $(document).ready(function(){
 		                              	<p># of Votes:${votes}</p>
 		                            </div>
 		                        </div>
-	                        	<button class="myBtn">Get Details</button>
+	                        	<button class="btn myBtn">Get Details</button>
 	                      	</div>
-                		</div>
-		  			`);
-	  			}
+                		</div>`);
+	  				}
+				});
 			});
 		});
-		
-	});
 
-	//FUNCTION TO GET THE LATITIUDE AND LONGITUDE OF THE CITY ENTERED
-
+	//ADD EVENT LISTENER TO THE CREATED BUTTONS
+	// (function() {
+ //    var buttons = document.getElementsByClassName('btn');
+ //    if(buttons && buttons.length > 0) {
+ //        for(var i=0; i < buttons.length; i++) {
+ //            var button = buttons[i];
+ //            button.addEventListener('click', function(e) {
+ //                e.preventDefault();
+ //                this.classList.toggle('active');
+ //            });
+ //        }
+ //    }
+	// })();
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
@@ -94,9 +103,19 @@ $(document).ready(function(){
 	let span = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on the button, open the modal 
-	btn.onclick = function() {
-	    modal.style.display = "block";
+	if(btn.length > 0) {
+		console.log(btn.length);
+		for(var index=0; index < btn.length; index++){
+			var button = btn[index];
+			button.addEventListener("click", function(e){
+				e.preventDefault();
+				modal.style.display = "block";
+			})
+		}
 	}
+	// btn.onclick = function() {
+	//     modal.style.display = "block";
+	// }
 
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
