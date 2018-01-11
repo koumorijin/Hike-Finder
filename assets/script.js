@@ -77,45 +77,28 @@ $(document).ready(function(){
 	                      	</div>
                 		</div>`);
 		  			$("#newModal").append(`
-					  <div id="${modalName}" class="modal">
-					      <div class="modal-content">
-					        <span class="close">&times;</span>
-					          <div class="row">
-					            <div class="col-lg-4">
-					              <img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
+					  	<div id="${modalName}" class="modal">
+					      	<div class="modal-content">
+					        	<span class="close">&times;</span>
+					          	<div class="row">
+					            	<div class="col-lg-4">
+					              	<img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
+					            	</div>
+					            	<div class="col-lg-8">
+					              		<div class="row">
+					                		<h3>Description:<span id="hikeDesc">Hi, I'm ${modalName}</span></h3>
+					              		</div> 
+					              	<div class="row">
+					                	<h3>Conditions:<span id="hikeCond"></span></h3>
+					              	</div> 
 					            </div>
-					            <div class="col-lg-8">
-					              <div class="row">
-					                <h3>Description:<span id="hikeDesc">Hi, I'm ${modalName}</span></h3>
-					              </div> 
-					              <div class="row">
-					                <h3>Conditions:<span id="hikeCond"></span></h3>
-					              </div> 
-					            </div>
-					          </div>
-					      </div>
+					        </div>
+					    </div>
 					</div>`)
 	  				}
 				});
 			});
 		});
- //  	var modals = document.getElementsByClassName('myModal');
-	// // Get the button that opens the modal
-	// var btns = document.getElementsByClassName("myBtn");
-	// var spans=document.getElementsByClassName("close");
-	// 	for(let i=0;i<btns.length;i++){
- //   			btns[i].onclick = function() {
- //      		modals[i].style.display = "block";
- //   			}
-	// 	}
-
-	// 	for(let i=0;i<spans.length;i++){
- //    		spans[i].onclick = function() {
- //       		modals[i].style.display = "none";
- //    		}
- // 		}
-
-
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
