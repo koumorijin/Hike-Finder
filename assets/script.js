@@ -48,6 +48,7 @@ $(document).ready(function(){
 	  			let modalName;
 	  			let description;
 	  			let condition;
+	  			let image;
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -59,6 +60,9 @@ $(document).ready(function(){
 		  			ascent = results[i].ascent;
 		  			description = results[i].summary;
 		  			condition = results[i].conditionStatus;
+		  			image = results[i].imgMedium;
+		  			//console.log(condition);
+		  			//console.log(description);
 
 		  			resultDetail.append(`
 		  				<div class="panel panel-primary">
@@ -91,16 +95,16 @@ $(document).ready(function(){
 					        <span class="close">&times;</span>
 					          <div class="row">
 					            <div class="col-lg-4">
-					              <img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
+					              <img id="hikeImg" src=${image} style="height: 300px; width: 300px;">
 					            </div>
 					            <div class="col-lg-8">
 					              <div class="row">
-					                <h3>Description:<span id="hikeDesc"${description}</span></h3>
+					                <h3>Description:<span id="hikeDesc">${description}</span></h3>
 					              </div> 
 					              <div class="row">
-					                <h3>Conditions:<span id="hikeCond"></span></h3>
+					                <h3>Conditions:<span id="hikeCond">${condition}</span></h3>
 					              </div>
-					              <button type="button" class="btn btn-default" id="getHike">Get Map</button> 
+					              <button type="button" class="btn btn-default" id="getHike${modalName}">Get Map</button> 
 					            </div>
 					          </div>
 					      </div>
@@ -110,6 +114,19 @@ $(document).ready(function(){
 			});
 		});
 
+
+    var database = firebase.database();
+
+  	// $("#getHike").on("click", function() {
+
+  	// 	var HikerActiveTime = new Date(Date.now());
+  	// 	console.log(HikerActiveTime);
+
+   //   		database.ref().set({
+   //    		HikerActiveTime
+   //    	});
+
+  	// });
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
@@ -136,5 +153,17 @@ $(document).ready(function(){
 	        modal.style.display = "none";
 	    }
 	}
+
+		// This doesnt work
+	  	$("#getHike").on("click", function() {
+
+  		var HikerActiveTime = new Date(Date.now());
+  		console.log(HikerActiveTime);
+
+     		database.ref().set({
+      		HikerActiveTime
+      	});
+
+  	});
 });
 
