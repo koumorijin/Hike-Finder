@@ -12,7 +12,7 @@ body {
 div.jumbotron{
     color: #fff;
 }
-ul{
+ul.sortable{
     list-style: none;
     padding: 0;
     list-style-type: none;
