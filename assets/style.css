@@ -89,6 +89,9 @@ body {
     height: 10%;
 }
 
+#navButton {
+    margin-left: 50px;
+}
 
 /* Add Animation */
 @-webkit-keyframes slideIn {
