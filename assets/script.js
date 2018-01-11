@@ -48,6 +48,7 @@ $(document).ready(function(){
 	  			let modalName;
 	  			let description;
 	  			let condition;
+	  			let image;
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -59,10 +60,13 @@ $(document).ready(function(){
 		  			ascent = results[i].ascent;
 		  			description = results[i].summary;
 		  			condition = results[i].conditionStatus;
+		  			image = results[i].imgMedium;
 
 		  			resultDetail.append(`
 		  				<div class="panel panel-primary">
-		                	<div class="panel-heading" id="hikeName">Hike Name:${name}</div>
+		                	<div class="panel-heading" id="hikeName">
+		                		<h2>${name}</h2>
+		                	</div>
 	                      	<div class="panel-body">
 		                        <div class="row">
 		                            <div class="col-lg-3">
@@ -85,19 +89,24 @@ $(document).ready(function(){
 		  			$("#newModal").append(`
 					  	<div id="${modalName}" class="modal">
 					      	<div class="modal-content">
-					        	<span class="close">&times;</span>
+					      	<button class="btn-danger" data-target="#${modalName}">
+					        	<span id="close${modalName}" class="close">&times;</span>
+					        </button>
 					          	<div class="row">
 					            	<div class="col-lg-4">
-					              	<img id="hikeImg" src="https://media.deseretdigital.com/file/c051d69509?crop=top:0|left:0|width:400|height:284|gravity:Center&quality=55&interlace=none&resize=height:284&order=resize,crop&c=14&a=86335ee9" style="height: 300px; width: 300px;">
+					              	<img id="hikeImg" src=${image} style="height: 300px; width: 300px;">
 					            	</div>
 					            	<div class="col-lg-8">
+					            	<div class="row">
+					            		<h2>${name}</h2>
+					            	</div>
 					              	<div class="row">
-					                	<h3>Description:<span id="hikeDesc"${description}</span></h3>
+					                	<h3>Description: <span id="hikeDesc">${description}</span></h3>
 					              	</div> 
 					              	<div class="row">
-					                	<h3>Conditions:<span id="hikeCond"></span></h3>
+					                	<h3>Conditions: <span id="hikeCond">${condition}</span></h3>
 					              	</div>
-					              	<button type="button" class="btn btn-default" id="getHike">Get Map</button> 
+					              	<button type="button" class="btn btn-default" id="getHike${modalName}">Get Map</button> 
 					            	</div>
 					          	</div>
 					      	</div>
@@ -121,8 +130,8 @@ $(document).ready(function(){
 	//     modal.style.display = "block";
 	// }
 
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
+	//When the user clicks on <span> (x), close the modal
+	$(".close").onclick = function() {
 	    modal.style.display = "none";
 	}
 

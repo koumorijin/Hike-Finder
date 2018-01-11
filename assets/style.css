@@ -81,12 +81,20 @@ body {
     font-weight: bold;
 }
 
+.panel {
+    margin-left: 5em;
+}
+
 #sidePanel {
     float: right;
 }
 
 .btn-primary {
     margin-top: 25px;
+}
+
+.btn-danger {
+    float: right;
 }
 
 .jumbotron {
