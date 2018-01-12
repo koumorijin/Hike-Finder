@@ -109,7 +109,7 @@ $(document).ready(function(){
 		  			$("#newModal").append(`
 					  	<div id="${modalName}" class="modal">
 					      	<div class="modal-content">
-					      	<button class="btn-danger" data-target="#${modalName}">
+					      	<button class="btn-danger" data-dismiss="modal">
 					        	<span id="close${modalName}" class="close">&times;</span>
 					        </button>
 					          	<div class="row">
@@ -121,10 +121,10 @@ $(document).ready(function(){
 					            		<h2>${name}</h2>
 					            	</div>
 					              	<div class="row">
-					                	<h3>Description: <span id="hikeDesc">${description}</span></h3>
+					                	<h3>Description: <span id="hikeDesc"><i>${description}</i></span></h3>
 					              	</div> 
 					              	<div class="row">
-					                	<h3>Conditions: <span id="hikeCond">${condition}</span></h3>
+					                	<h3>Conditions: <span id="hikeCond"><strong>${condition}</strong></span></h3>
 					              	</div>
 					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success" role="button">Get Directions</a>
 					            	</div>
@@ -152,7 +152,6 @@ $(document).ready(function(){
         connectWith: ".sortable"
     }).disableSelection();
 });
-
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
