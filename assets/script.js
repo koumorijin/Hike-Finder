@@ -26,18 +26,18 @@ $(document).ready(function(){
 		
 		//API CALL TO HIKING TRAILS
 		$.ajax({
-	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+'&key=AIzaSyDRwYY-1gElgh60JvbxuJfZr0BJQJ37E00',
+	   	 	url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+'&key=AIzaSyDRwYY-1gElgh60JvbxuJfZr0BJQJ37E00',
 	    	type: "GET"
-			}).done(function(data) {
+		}).done(function(data) {
 			console.log('googleapis');
 	  		console.log(data);
 	  		let currentLat = data.results[0].geometry.location.lat;
 	  		let currentLong = data.results[0].geometry.location.lng;
 	  		$.ajax({
-		   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-		   	url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
+		   	 	//url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+		   		url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
 		    	type: "GET"
-				}).done(function(data) {
+			}).done(function(data) {
 		  		console.log(data);
 		  		let results = data.trails;
 		  		console.log(results);
@@ -132,71 +132,40 @@ $(document).ready(function(){
 					          	</div>
 					      	</div>
 						</div>`)
-	  				}
-	  				$('.hikeDirections').on("click", function(){
-	  					var name =$(this).parent().children()[0].innerText.trim();
-					   	var hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
-					   	var attended = moment().format('LLLL');
-					   	console.log(name);
-					   	console.log(hikeDesc);
-					   	console.log(hikeCond);
-					   	console.log(attended);
-					   	database.ref().push({
-						    name: name,
-						    hikeCond: hikeCond,
-						    attended: attended
-						});
-  
-						console.log('Direction click');
-						console.log($(this).parent());
+  				}
+  				$('.hikeDirections').on("click", function(){
+  					var name =$(this).parent().children()[0].innerText.trim();
+				   	var hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
+				   	var attended = moment().format('LLLL');
+				   	console.log(name);
+				   	console.log(hikeDesc);
+				   	console.log(hikeCond);
+				   	console.log(attended);
+				   	database.ref().push({
+					    name: name,
+					    hikeCond: hikeCond,
+					    attended: attended
 					});
 				});
-			});
+			});		
 		});
+	});
 
-		 $(function() {
-		    var oldList, newList, item;
-		    $('.sortable').sortable({
-		        start: function(event, ui) {
-		            item = ui.item;
-		            newList = oldList = ui.item.parent().parent();
-		        },
-		        stop: function(event, ui) {          
-		            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
-		        },
-		        change: function(event, ui) {  
-		            if(ui.sender) newList = ui.placeholder.parent().parent();
-		        },
-		        connectWith: ".sortable"
-		    }).disableSelection();
-		});
-
-		
-
-	// Get the modal
-	// let modals = document.getElementsByClassName('modal');
-
-	// // Get the button that opens the modal
-	// let btn = document.getElementsByClassName("myBtn");
-
-	// // Get the <span> element that closes the modal
-	// let spans = document.getElementsByClassName("close")[0];
-
-	// When the user clicks on the button, open the modal 
-	// btn.onclick = function() {
-	//     modal.style.display = "block";
-	// }
-
-	//When the user clicks on <span> (x), close the modal
-	// $(".close").onclick = function() {
-	//     modal.style.display = "none";
-	// }
-
-	// // When the user clicks anywhere outside of the modal, close it
-	// window.onclick = function(event) {
-	//     if (event.target == modal) {
-	//         modal.style.display = "none";
-	//     }
-	// }
+	$(function() {
+	    var oldList, newList, item;
+	    $('.sortable').sortable({
+	        start: function(event, ui) {
+	            item = ui.item;
+	            newList = oldList = ui.item.parent().parent();
+	        },
+	        stop: function(event, ui) {          
+	            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
+	        },
+	        change: function(event, ui) {  
+	            if(ui.sender) newList = ui.placeholder.parent().parent();
+	        },
+	        connectWith: ".sortable"
+	    }).disableSelection();
+	});
 });
 
