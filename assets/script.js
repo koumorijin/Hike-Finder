@@ -13,6 +13,7 @@ $(document).ready(function(){
 
   	//ON CLICK SUBMIT BUTTON EVENT
   	$("#getHike").on("click", function() {
+  		$('ul#results').empty();
 		let city = $("#city").val();
 		let state = $("#state").val();
 		let radius = $("input#radius").val();
@@ -122,16 +123,6 @@ $(document).ready(function(){
 			});
 		});
 
-	// initializeSortable = function() {
- //        $('ul#sortable').sortable({
- //            start: function(event, ui) {
- //                // determine which list the assignment record was taken from (source list: $scope.startUl)
- //                startHikeId= $(ui.item).find('div.id').text();
- //            }
- //        });
- //    }
- //    initializeSortable();
- // $(".sortable").sortable();
  $(function() {
     var oldList, newList, item;
     $('.sortable').sortable({
