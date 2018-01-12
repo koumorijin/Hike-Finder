@@ -46,12 +46,14 @@ $(document).ready(function(){
 	  			let rating;
 	  			let votes;
 	  			let ascent;
+	  			let descent;
 	  			let modalName;
 	  			let description;
 	  			let condition;
 	  			let image;
 	  			let hikeLat;
-	  			let hikeLong
+	  			let hikeLong;
+	  			let length;
 
 
 		  		for (var i = 0; i < results.length; i++) {
@@ -66,6 +68,9 @@ $(document).ready(function(){
 		  			image = results[i].imgMedium;
 		  			hikeLat = results[i].latitude;
 		  			hikeLong = results[i].longitude;
+		  			descent = results[i].descent;
+		  			length = results[i].length;
+
 
 		  			resultDetail.append(`
 		  				<li>
@@ -75,17 +80,25 @@ $(document).ready(function(){
 			                	</div>
 		                      	<div class="panel-body">
 			                        <div class="row">
-			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			                              	<p>Ascent:${ascent}</p>
+			                        	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			                              	<p><strong>Ascent:</strong> <i>${ascent}</i></p>
 			                            </div>
-			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			                              	<p>Difficulty:${difficulty}</p>
+			                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			                              	<p><strong>Difficulty:</strong> <i>${difficulty}</i></p>
 			                            </div>
-			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			                              	<p>Rating:${rating}</p>
+			                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			                              	<p><strong>Rating:</strong> <i>${rating}</i></p>
 			                            </div>
-			                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			                              	<p># of Votes:${votes}</p>
+			                        </div>
+			                        <div class="row">
+			                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			                              	<p><strong>Descent:</strong> <i>${descent}</i></p>
+			                            </div>
+			                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			                              	<p><strong>Length:</strong> <i>${length}</i></p>
+			                            </div>
+			                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			                              	<p><strong># of Votes:</strong> <i>${votes}</i></p>
 			                            </div>
 			                        </div>
 		                        	<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
