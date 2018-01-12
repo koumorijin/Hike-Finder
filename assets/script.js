@@ -10,6 +10,7 @@ $(document).ready(function(){
     messagingSenderId: "241059448457"
   };
   firebase.initializeApp(config);
+  let database = firebase.database();
 
   	//ON CLICK SUBMIT BUTTON EVENT
   	$("#getHike").on("click", function() {
@@ -54,7 +55,7 @@ $(document).ready(function(){
 	  			let hikeLong
 
 
-		  		for (var i = 0; i < results.length; i++) {
+		  		for (let i = 0; i < results.length; i++) {
 		  			modalName = "modal" + Math.floor((Math.random() * 100000) + 1);
 		  			name = results[i].name;
 		  			difficulty = results[i].difficulty;
@@ -91,13 +92,13 @@ $(document).ready(function(){
 		                        	<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
 		                      	</div>
 	                		</div>
-	                	<li>`);
+	                	</li>`);
 
 		  			$("#newModal").append(`
 					  	<div id="${modalName}" class="modal">
 					      	<div class="modal-content">
 					      	<button class="btn-danger" data-target="#${modalName}">
-					        	<span id="close${modalName}" class="close">&times;</span>
+					        	<span id="close${modalName}" data-dismiss="modal" class="close">&times;</span>
 					        </button>
 					          	<div class="row">
 					            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -113,42 +114,61 @@ $(document).ready(function(){
 					              	<div class="row">
 					                	<h3>Conditions: <span id="hikeCond">${condition}</span></h3>
 					              	</div>
-					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success" role="button">Get Directions</a>
+					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success hikeDirections" role="button">Get Directions</a>
 					            	</div>
 					          	</div>
 					      	</div>
 						</div>`)
 	  				}
+	  				$('.hikeDirections').on("click", function(){
+	  					var name =$(this).parent().children()[0].innerText.trim();
+					   	var hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
+					   	var attended = moment().format('LLLL');
+					   	console.log(name);
+					   	console.log(hikeDesc);
+					   	console.log(hikeCond);
+					   	console.log(attended);
+					   	database.ref().push({
+						    name: name,
+						    hikeCond: hikeCond,
+						    attended: attended
+						});
+  
+						console.log('Direction click');
+						console.log($(this).parent());
+					});
 				});
 			});
 		});
 
- $(function() {
-    var oldList, newList, item;
-    $('.sortable').sortable({
-        start: function(event, ui) {
-            item = ui.item;
-            newList = oldList = ui.item.parent().parent();
-        },
-        stop: function(event, ui) {          
-            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
-        },
-        change: function(event, ui) {  
-            if(ui.sender) newList = ui.placeholder.parent().parent();
-        },
-        connectWith: ".sortable"
-    }).disableSelection();
-});
+		 $(function() {
+		    var oldList, newList, item;
+		    $('.sortable').sortable({
+		        start: function(event, ui) {
+		            item = ui.item;
+		            newList = oldList = ui.item.parent().parent();
+		        },
+		        stop: function(event, ui) {          
+		            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
+		        },
+		        change: function(event, ui) {  
+		            if(ui.sender) newList = ui.placeholder.parent().parent();
+		        },
+		        connectWith: ".sortable"
+		    }).disableSelection();
+		});
+
+		
 
 
 	// Get the modal
-	let modal = document.getElementById('myModal');
+	// let modals = document.getElementsByClassName('modal');
 
-	// Get the button that opens the modal
-	let btn = document.getElementsByClassName("myBtn");
+	// // Get the button that opens the modal
+	// let btn = document.getElementsByClassName("myBtn");
 
-	// Get the <span> element that closes the modal
-	let span = document.getElementsByClassName("close")[0];
+	// // Get the <span> element that closes the modal
+	// let spans = document.getElementsByClassName("close")[0];
 
 	// When the user clicks on the button, open the modal 
 	// btn.onclick = function() {
@@ -156,15 +176,15 @@ $(document).ready(function(){
 	// }
 
 	//When the user clicks on <span> (x), close the modal
-	$(".close").onclick = function() {
-	    modal.style.display = "none";
-	}
+	// $(".close").onclick = function() {
+	//     modal.style.display = "none";
+	// }
 
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-	}
+	// // When the user clicks anywhere outside of the modal, close it
+	// window.onclick = function(event) {
+	//     if (event.target == modal) {
+	//         modal.style.display = "none";
+	//     }
+	// }
 });
 
