@@ -101,10 +101,13 @@ $(document).ready(function(){
 			                              	<p><strong># of Votes:</strong> <i>${votes}</i></p>
 			                            </div>
 			                        </div>
-		                        	<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
+			                        <div class="row">
+			                        	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		                        			<button class="btn btn-primary myBtn" data-toggle="modal" data-target="#${modalName}">Get Details</button>
+		                        	</div>
 		                      	</div>
 	                		</div>
-	                	<li>`);
+	                	</li>`);
 
 		  			$("#newModal").append(`
 					  	<div id="${modalName}" class="modal">
@@ -132,45 +135,40 @@ $(document).ready(function(){
 					      	</div>
 						</div>`)
 	  				}
+	  		// 		$(".move").on("click", function(){
+				 // 		//console.log("I was clicked!");
+				 // 		//console.log($(this).parent().parent().parent());
+				 // 		$(this).parent().parent().parent().parent().append($("#selectedHikes"));
+				 //     	$(this).parent().parent().parent().parent().remove();
+					// });
 				});
 			});
 		});
 
- $(function() {
-    var oldList, newList, item;
-    $('.sortable').sortable({
-        start: function(event, ui) {
-            item = ui.item;
-            newList = oldList = ui.item.parent().parent();
-        },
-        stop: function(event, ui) {          
-            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
-        },
-        change: function(event, ui) {  
-            if(ui.sender) newList = ui.placeholder.parent().parent();
-        },
-        connectWith: ".sortable"
-    }).disableSelection();
-});
+ 	$(function() {
+	    var oldList, newList, item;
+	    $('.sortable').sortable({
+	        start: function(event, ui) {
+	            item = ui.item;
+	            newList = oldList = ui.item.parent().parent();
+	        },
+	        stop: function(event, ui) {          
+	            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
+	        },
+	        change: function(event, ui) {  
+	            if(ui.sender) newList = ui.placeholder.parent().parent();
+	        },
+	        connectWith: ".sortable"
+	    }).disableSelection();
+	});
+
+ 	
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
 
 	// Get the button that opens the modal
 	let btn = document.getElementsByClassName("myBtn");
-
-	// Get the <span> element that closes the modal
-	let span = document.getElementsByClassName("close")[0];
-
-	// When the user clicks on the button, open the modal 
-	// btn.onclick = function() {
-	//     modal.style.display = "block";
-	// }
-
-	//When the user clicks on <span> (x), close the modal
-	$(".close").onclick = function() {
-	    modal.style.display = "none";
-	}
 
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {

@@ -107,6 +107,9 @@ ul.sortable{
 .btn-primary {
     margin-top: 25px;
 }
+.btn-success {
+    margin-top: 25px;
+}
 
 .btn-danger {
     float: right;
