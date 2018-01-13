@@ -134,9 +134,9 @@ $(document).ready(function(){
 						</div>`)
   				}
   				$('.hikeDirections').on("click", function(){
-  					var name =$(this).parent().children()[0].innerText.trim();
-				   	var hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
-				   	var attended = moment().format('LLLL');
+  					let name =$(this).parent().children()[0].innerText.trim();
+				   	let hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
+				   	let attended = moment().format('LLLL');
 				   	console.log(name);
 				   	console.log(hikeDesc);
 				   	console.log(hikeCond);
@@ -150,7 +150,6 @@ $(document).ready(function(){
 			});		
 		});
 	});
-
 	$(function() {
 	    var oldList, newList, item;
 	    $('.sortable').sortable({
