@@ -11,6 +11,7 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
   let database = firebase.database();
+  let myHikes = false;
 
   	//ON CLICK SUBMIT BUTTON EVENT
   	$("#getHike").on("click", function() {
@@ -55,6 +56,8 @@ $(document).ready(function(){
 	  			let hikeLat;
 	  			let hikeLong;
 	  			let length;
+	  			let hikeId;
+	  			myHikes = false;
 
 
 		  		for (let i = 0; i < results.length; i++) {
@@ -71,6 +74,7 @@ $(document).ready(function(){
 		  			hikeLong = results[i].longitude;
 		  			descent = results[i].descent;
 		  			length = results[i].length;
+		  			hikeId = results[i].id;
 
 
 		  			resultDetail.append(`
@@ -135,18 +139,42 @@ $(document).ready(function(){
 					          	</div>
 					      	</div>
 						</div>`)
-	  				}
+	  			}
 	  		// 		$(".move").on("click", function(){
 				 // 		//console.log("I was clicked!");
 				 // 		//console.log($(this).parent().parent().parent());
 				 // 		$(this).parent().parent().parent().parent().append($("#selectedHikes"));
 				 //     	$(this).parent().parent().parent().parent().remove();
 					// });
-  				}
+  				
   				$('.hikeDirections').on("click", function(){
-  					var name =$(this).parent().children()[0].innerText.trim();
-				   	var hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
-				   	var attended = moment().format('LLLL');
+  					let name =$(this).parent().children()[0].innerText.trim();
+				   	let hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
+				   	let attended = moment().format('LLLL');
+				   	let hikePanel = `<div id="${modalName}" class="modal">
+					      	<div class="modal-content">
+					      	<button class="btn-danger" data-dismiss="modal">
+					        	<span id="close${modalName}" class="close">&times;</span>
+					        </button>
+					          	<div class="row">
+					            	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					              	<img id="hikeImg" src=${image} style="height: 300px; width: 300px;">
+					            	</div>
+					            	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					            	<div class="row">
+					            		<h2>${name}</h2>
+					            	</div>
+					              	<div class="row">
+					                	<h3>Description: <span id="hikeDesc"><i>${description}</i></span></h3>
+					              	</div> 
+					              	<div class="row">
+					                	<h3>Conditions: <span id="hikeCond"><strong>${condition}</strong></span></h3>
+					              	</div>
+					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success hikeDirections" role="button">Get Directions</a>
+					            	</div>
+					          	</div>
+					      	</div>
+						</div>`;
 				   	console.log(name);
 				   	console.log(hikeDesc);
 				   	console.log(hikeCond);
@@ -156,6 +184,15 @@ $(document).ready(function(){
 					    hikeCond: hikeCond,
 					    attended: attended
 					});
+					let hikeObject = {"id" : hikeId, "panel" : hikePanel}
+					//localStorage.setItem("id", hikeId);
+					//localStorage.setItem("panel", hikePanel);
+					localStorage.setItem("hikeObject", JSON.stringify(hikeObject));
+					
+					$("#selectedHikes").html(localStorage.getItem("panel"));
+
+					console.log(hikeObject);
+
 				});
 			});		
 		});
