@@ -16,7 +16,7 @@
         <span class="caret"></span>
         </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="./index.html">Front End</a></li>
+            <li><a href="./index.html">Hiker Site</a></li>
             <li><a href="#">Ranger Site</a></li>
           </ul>
       </div>
@@ -29,43 +29,36 @@
             <h3 class="panel-title">Available Hikes</h3>
           </div>
           <div class="panel-body">
-
           </div>
         </div>
       </div> -->
-   <div class="container-fluid">
-    <h2 class="text-center">Hike Information</h2>
-    <div class="row text-center row-striped margin-less header-row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Trial Name
+    <div class="container">
+      <h2 class="text-center rangerHeader" style="background-color: black;">Trail Use Information</h2>
+      <div class="row text-center margin-less header-row" id="trailHeaderInfo">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          Trial Name
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          Trail Condition
+        </div> 
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          Date and Time of Use
+        </div>  
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        # of hikers
-      </div> 
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Condition
-      </div>  
-    </div>
-    <div class="row text-center row-striped margin-less">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Test
+      <div id="hikeInfo">
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Test
-      </div> 
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        Test
-      </div>  
     </div>
-  </div>
-
   </div>
   <div id="map"> 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
     crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD7xC9b-vcK3lmnFgl_yISWDXoilGb7awk"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./assets/rangerscript.js"></script>
 </body>
 </html>

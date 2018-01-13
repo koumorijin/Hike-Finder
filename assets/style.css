@@ -27,6 +27,10 @@ ul.sortable{
     margin-left: 10%;
 }
 
+.rangerHeader{
+    color: #fff;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -81,6 +85,10 @@ ul.sortable{
     color: white;
 }
 
+.row-striped{
+    padding: 1.5em;
+}
+
 .row-striped:nth-of-type(odd){
   background-color: #efefef;
   border-top: 1px solid #ddd;
@@ -94,6 +102,8 @@ ul.sortable{
 .header-row{
     font-size: 1.5em;
     font-weight: bold;
+    background-color: #ffffff;
+    padding: 1.5em;
 }
 
 .panel {

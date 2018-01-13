@@ -135,7 +135,6 @@ $(document).ready(function(){
 					          	</div>
 					      	</div>
 						</div>`)
-<<<<<<< HEAD
 	  				}
 	  		// 		$(".move").on("click", function(){
 				 // 		//console.log("I was clicked!");
@@ -143,7 +142,6 @@ $(document).ready(function(){
 				 // 		$(this).parent().parent().parent().parent().append($("#selectedHikes"));
 				 //     	$(this).parent().parent().parent().parent().remove();
 					// });
-=======
   				}
   				$('.hikeDirections').on("click", function(){
   					var name =$(this).parent().children()[0].innerText.trim();
@@ -158,17 +156,12 @@ $(document).ready(function(){
 					    hikeCond: hikeCond,
 					    attended: attended
 					});
->>>>>>> ee8a9e32ecd0b9b94d6d7f041717eb8ec271a0e1
 				});
 			});		
 		});
 	});
 
-<<<<<<< HEAD
- 	$(function() {
-=======
 	$(function() {
->>>>>>> ee8a9e32ecd0b9b94d6d7f041717eb8ec271a0e1
 	    var oldList, newList, item;
 	    $('.sortable').sortable({
 	        start: function(event, ui) {
@@ -184,9 +177,6 @@ $(document).ready(function(){
 	        connectWith: ".sortable"
 	    }).disableSelection();
 	});
-<<<<<<< HEAD
-
- 	
 
 	// Get the modal
 	let modal = document.getElementById('myModal');
@@ -200,7 +190,5 @@ $(document).ready(function(){
 	        modal.style.display = "none";
 	    }
 	}
-=======
->>>>>>> ee8a9e32ecd0b9b94d6d7f041717eb8ec271a0e1
 });
 
