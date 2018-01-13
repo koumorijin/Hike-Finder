@@ -14,7 +14,7 @@ $(document).ready(function(){
   	let ref = database.ref();
 	ref.on("value", function(snapshot) {
 		snapshot.forEach(function(childNodes) {  
-		   	$("#hikeInfo").append(`
+		   	$("#hikeInfo").prepend(`
 				<div class="row text-center row-striped margin-less">
 			        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 			          ${childNodes.val().name}
