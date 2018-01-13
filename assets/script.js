@@ -157,7 +157,8 @@ $(document).ready(function(){
 	            item = ui.item;
 	            newList = oldList = ui.item.parent().parent();
 	        },
-	        stop: function(event, ui) {          
+	        stop: function(event, ui) {
+	        	console.log(ui.item.parent());
 	            // alert("Moved " + item.text() + " from " + oldList.attr('id') + " to " + newList.attr('id'));
 	        },
 	        change: function(event, ui) {  
