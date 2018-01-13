@@ -185,14 +185,15 @@ $(document).ready(function(){
 					    attended: attended
 					});
 					let hikeObject = {"id" : hikeId, "panel" : hikePanel}
-					//localStorage.setItem("id", hikeId);
-					//localStorage.setItem("panel", hikePanel);
+					localStorage.setItem("id", hikeId);
+					localStorage.setItem("panel", hikePanel);
 					localStorage.setItem("hikeObject", JSON.stringify(hikeObject));
 					
-					$("#selectedHikes").html(localStorage.getItem("panel"));
-
-					console.log(hikeObject);
-
+					//for(myHikeIndex = 0; myHikeIndex < hikeObject.id.length; myHikeIndex++) {
+						let divAppend = localStorage.getItem("hikeObject", JSON.parse(hikeObject.panel));
+						$("#selectedHikes").html(divAppend);
+						console.log(divAppend);
+					//}
 				});
 			});		
 		});
