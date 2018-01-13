@@ -13,23 +13,21 @@ $(document).ready(function(){
   	let database = firebase.database();
   	let ref = database.ref();
 	ref.on("value", function(snapshot) {
-		// for each (snapshot.val()) {  
-		//    	$("#trailHeaderInfo").append(`
-		// 		<div class="row text-center row-striped margin-less header-row" id="trailHeaderInfo">
-		// 	        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-		// 	          ${name}
-		// 	        </div>
-		// 	        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-		// 	          ${hikeCond}
-		// 	        </div> 
-		// 	        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-		// 	          ${attended}
-		// 	        </div>  
-		// 	    </div>
-		// 	`);  
-		// }  
-	   console.log(snapshot.val());
-
+		snapshot.forEach(function(childNodes) {  
+		   	$("#hikeInfo").append(`
+				<div class="row text-center row-striped margin-less">
+			        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+			          ${childNodes.val().name}
+			        </div>
+			        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+			          ${childNodes.val().hikeCond}
+			        </div> 
+			        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+			          ${childNodes.val().attended}
+			        </div>  
+			    </div>
+			`);  
+		});
 	}, function (error) {
 	   console.log("Error: " + error.code);
 	});
