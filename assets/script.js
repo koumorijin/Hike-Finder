@@ -10,6 +10,7 @@ $(document).ready(function(){
     messagingSenderId: "241059448457"
   };
   firebase.initializeApp(config);
+  let database = firebase.database();
 
   	//ON CLICK SUBMIT BUTTON EVENT
   	$("#getHike").on("click", function() {
@@ -25,18 +26,18 @@ $(document).ready(function(){
 		
 		//API CALL TO HIKING TRAILS
 		$.ajax({
-	   	 url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+'&key=AIzaSyDRwYY-1gElgh60JvbxuJfZr0BJQJ37E00',
+	   	 	url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+'&key=AIzaSyDRwYY-1gElgh60JvbxuJfZr0BJQJ37E00',
 	    	type: "GET"
-			}).done(function(data) {
+		}).done(function(data) {
 			console.log('googleapis');
 	  		console.log(data);
 	  		let currentLat = data.results[0].geometry.location.lat;
 	  		let currentLong = data.results[0].geometry.location.lng;
 	  		$.ajax({
-		   	 //url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
-		   	url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
+		   	 	//url: "https://www.hikingproject.com/data/get-trails?lat="+cityLon+"&lon="+cityLon+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults=100",
+		   		url: "https://www.hikingproject.com/data/get-trails?lat="+currentLat+"&lon="+currentLong+"&maxDistance="+radius+"&key=200198519-a331d25bdc7ef2acc53d1f1636e3cd3b&maxResults="+resultsDesired+"",
 		    	type: "GET"
-				}).done(function(data) {
+			}).done(function(data) {
 		  		console.log(data);
 		  		let results = data.trails;
 		  		console.log(results);
@@ -56,7 +57,7 @@ $(document).ready(function(){
 	  			let length;
 
 
-		  		for (var i = 0; i < results.length; i++) {
+		  		for (let i = 0; i < results.length; i++) {
 		  			modalName = "modal" + Math.floor((Math.random() * 100000) + 1);
 		  			name = results[i].name;
 		  			difficulty = results[i].difficulty;
@@ -129,11 +130,12 @@ $(document).ready(function(){
 					              	<div class="row">
 					                	<h3>Conditions: <span id="hikeCond"><strong>${condition}</strong></span></h3>
 					              	</div>
-					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success" role="button">Get Directions</a>
+					              	<a href="https://www.google.com/maps/search/?api=1&query=${hikeLat},${hikeLong}" target="_blank" id="${modalName}" class="btn btn-success hikeDirections" role="button">Get Directions</a>
 					            	</div>
 					          	</div>
 					      	</div>
 						</div>`)
+<<<<<<< HEAD
 	  				}
 	  		// 		$(".move").on("click", function(){
 				 // 		//console.log("I was clicked!");
@@ -141,11 +143,32 @@ $(document).ready(function(){
 				 // 		$(this).parent().parent().parent().parent().append($("#selectedHikes"));
 				 //     	$(this).parent().parent().parent().parent().remove();
 					// });
+=======
+  				}
+  				$('.hikeDirections').on("click", function(){
+  					var name =$(this).parent().children()[0].innerText.trim();
+				   	var hikeCond = $(this).parent().children()[2].innerText.split(":").pop().trim();
+				   	var attended = moment().format('LLLL');
+				   	console.log(name);
+				   	console.log(hikeDesc);
+				   	console.log(hikeCond);
+				   	console.log(attended);
+				   	database.ref().push({
+					    name: name,
+					    hikeCond: hikeCond,
+					    attended: attended
+					});
+>>>>>>> ee8a9e32ecd0b9b94d6d7f041717eb8ec271a0e1
 				});
-			});
+			});		
 		});
+	});
 
+<<<<<<< HEAD
  	$(function() {
+=======
+	$(function() {
+>>>>>>> ee8a9e32ecd0b9b94d6d7f041717eb8ec271a0e1
 	    var oldList, newList, item;
 	    $('.sortable').sortable({
 	        start: function(event, ui) {
@@ -161,6 +184,7 @@ $(document).ready(function(){
 	        connectWith: ".sortable"
 	    }).disableSelection();
 	});
+<<<<<<< HEAD
 
  	
 
@@ -176,5 +200,7 @@ $(document).ready(function(){
 	        modal.style.display = "none";
 	    }
 	}
+=======
+>>>>>>> ee8a9e32ecd0b9b94d6d7f041717eb8ec271a0e1
 });
 
